@@ -15,8 +15,14 @@ class _HomePageState extends State<HomePage> {
 
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(          
-          backgroundColor: Color.fromARGB(255, 138, 101, 203),          
+        appBar: AppBar( 
+          leading: IconButton(onPressed: (){}, icon: const Icon(Icons.menu)),
+          title: const Text('Drone Sprayer'),
+          actions: [
+            IconButton(onPressed: (){},
+            icon: const Icon(Icons.settings))
+          ],        
+          backgroundColor: const Color.fromARGB(255, 138, 101, 203),          
           elevation: 0.0,
         ),
         backgroundColor: Colors.white,
@@ -62,18 +68,18 @@ class _HomePageState extends State<HomePage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.only(bottom: 10),
-                          child: Text(
-                            'Welcome',
-                            style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.deepPurple[800]),
-                          ),
-                        ),
-                      ),
+                      // Center(
+                      //   child: Padding(
+                      //     padding: const EdgeInsets.only(bottom: 10),
+                      //     child: Text(
+                      //       'Welcome',
+                      //       style: TextStyle(
+                      //           fontSize: 30,
+                      //           fontWeight: FontWeight.bold,
+                      //           color: Colors.deepPurple[800]),
+                      //     ),
+                      //   ),
+                      // ),
                       SizedBox(
                         height: 400,
                         child: GridView.count(

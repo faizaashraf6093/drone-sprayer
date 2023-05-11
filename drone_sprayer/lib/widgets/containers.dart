@@ -13,7 +13,6 @@ class HomeContainer extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     return Container(
       width: width, 
-
       height: height,
       margin: const EdgeInsets.only(
         left: 20,
