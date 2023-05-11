@@ -8,9 +8,13 @@ class HomeContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Container(
-      height: 20,
-      width: 40,
+      width: width, 
+
+      height: height,
       margin: const EdgeInsets.only(
         left: 20,
         right: 20,
