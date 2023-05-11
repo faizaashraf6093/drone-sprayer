@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,6 +11,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return  MaterialApp(
+      title: 'Drone Sprayer',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,        
+      ),
+      home: const HomePage(),
+    );
   }
 }
