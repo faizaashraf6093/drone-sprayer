@@ -50,24 +50,28 @@ class HomePage extends StatelessWidget {
                                 mainAxisSpacing: 5,
                                 children: const [
                                   HomeContainer(
-                                    text: 'Select Nozzle',
-                                    details: 'lorem ipsum ',
-                                    icon: Icons.water,
+                                    iconImage: 'asset/icons/time.png',
+                                    text: 'Calculate Time',
+                                    details:
+                                        'Estimate how long it will take to spray the whole area',
                                   ),
                                   HomeContainer(
-                                    text: 'LLLLLL',
-                                    details: 'lorem ipsum',
-                                    icon: Icons.access_alarm,
+                                    iconImage: 'asset/icons/insecticide.png',
+                                    text: 'Product Calculations',
+                                    details:
+                                        'How much product in total require to spray the whole area',
                                   ),
                                   HomeContainer(
-                                    text: 'lahore',
-                                    details: 'japan',
-                                    icon: Icons.access_alarm_sharp,
+                                    iconImage: 'asset/icons/pesticide.png',
+                                    text: 'Spray Mix Calculations',
+                                    details:
+                                        'The amount of pesticide to put in a sprayer each time',
                                   ),
                                   HomeContainer(
-                                    text: 'lahore',
-                                    details: 'city',
-                                    icon: Icons.access_alarm_sharp,
+                                    iconImage: 'asset/icons/nozzle.png',
+                                    text: 'Drone Calibration',
+                                    details:
+                                        'Find Sprayer Output, Swath width, ',
                                   ),
                                 ]),
                           ),
