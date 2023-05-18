@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
             IconButton(onPressed: (){},
             icon: const Icon(Icons.settings))
           ],        
-          backgroundColor: const Color.fromARGB(255, 138, 101, 203),          
+          backgroundColor: const Color.fromRGBO(138, 101, 203, 1),          
           elevation: 0.0,
         ),
         backgroundColor: Colors.white,

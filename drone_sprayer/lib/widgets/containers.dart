@@ -24,7 +24,7 @@ class HomeContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: const [
             BoxShadow(
-              color: Color.fromARGB(255, 150, 147, 147),
+              color: Color.fromRGBO(150, 147, 147, 1),
               offset: Offset(-5.0, 5.0),
               blurRadius: 20,
               spreadRadius: 0.5,
