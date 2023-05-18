@@ -1,5 +1,5 @@
+import 'package:drone_sprayer/widgets/drawer.dart';
 import 'package:flutter/material.dart';
-import 'screens/homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,16 +8,19 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       title: 'Drone Sprayer',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,        
-      ),
-      home: const HomePage(),
+          primarySwatch: Colors.teal,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.teal,
+            elevation: 0.0,
+            centerTitle: true,
+          )),
+      home: const HiddenDrawer(),
     );
   }
 }

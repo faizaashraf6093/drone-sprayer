@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 
 class HomeContainer extends StatelessWidget {
+  
   final String text;
   final String details;
   final IconData icon;
-  const HomeContainer({super.key, required this.text, required this.details, required this.icon});
+
+  const HomeContainer(
+      {super.key,
+      required this.text,
+      required this.details,
+      required this.icon});
 
   @override
   Widget build(BuildContext context) {
-    
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
     return Container(
-      width: width, 
-      height: height,
       margin: const EdgeInsets.only(
         left: 20,
         right: 20,
-        top: 10,
+        top: 20,
       ),
       decoration: BoxDecoration(
           color: Colors.white,
@@ -38,8 +39,6 @@ class HomeContainer extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 70,
-            width: 70,
             decoration: const BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,
@@ -59,20 +58,23 @@ class HomeContainer extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.all(10),
-              child: Icon(icon,
-                size: 50,
-                color: Colors.deepPurple[600],
+              child: Icon(
+                icon,
+                size: 24,
+                color: Colors.red,                
               ),
             ),
           ),
           const SizedBox(height: 20),
           Column(
-            children:  [
-              Text(text,
+            children: [
+              Text(
+                text,
                 style: TextStyle(
-                  fontSize: 20, 
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue[900],),
+                  color: Colors.blue[900],
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 15),
