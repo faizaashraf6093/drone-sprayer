@@ -1,3 +1,4 @@
+import 'package:drone_sprayer/screens/help.dart';
 import 'package:drone_sprayer/screens/homepage.dart';
 import 'package:drone_sprayer/screens/settings.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +49,15 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
         ),
         const Settings(),
       ),
+      ScreenHiddenDrawer(
+        ItemHiddenMenu(
+          name: 'Help',
+          baseStyle: _baseStyle,
+          selectedStyle: _selectedStyle,
+          colorLineSelected: Colors.white,
+        ),
+        const Help(),
+      ),
     ];
   }
 
@@ -56,7 +66,7 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
     return HiddenDrawerMenu(
       initPositionSelected: 0,
       screens: _pages,
-      backgroundColorMenu: const Color.fromARGB(255, 33, 106, 99),
+      backgroundColorMenu: const Color.fromARGB(255, 32, 116, 107),
     );
   }
 }

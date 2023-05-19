@@ -39,47 +39,45 @@ class HomeContainer extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(
+              top: 12,
+            ),
             child: Container(
-              height: 50,
+              height: 30,
               decoration: BoxDecoration(
-                image: DecorationImage(                
-                  fit: BoxFit.contain,
+                image: DecorationImage(
+                  scale: 0.5,
+                  fit: BoxFit.scaleDown,
                   image: AssetImage(iconImage),
                 ),
-                color: Colors.white,
+                color: Colors.transparent,
               ),
             ),
           ),
-          const SizedBox(height: 20),
-          Column(
+          Column(            
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  text,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.blue[900],
+                child: SizedBox(
+                  height: 30,
+                  child: Text(
+                    text,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue[900],
+                    ),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 20.0,
-                  bottom: 20.0,
-                  left: 20.0,
-                  right: 15.0,
-                ),
-                child: Center(
-                  child: Text(
-                    details,
-                    style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey),
-                  ),
+              Text(
+                details,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey.shade600,
                 ),
               ),
             ],
