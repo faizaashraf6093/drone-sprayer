@@ -1,4 +1,6 @@
-import 'package:drone_sprayer/widgets/drawer.dart';
+import 'package:drone_sprayer/screens/help.dart';
+import 'package:drone_sprayer/screens/product.dart';
+import 'package:drone_sprayer/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,16 +14,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialRoute: '/',
+      getPages: [
+        GetPage(name: '/', page: () => const ProductCalculation()),
+        GetPage(name: '/setting', page: () => const Settings()),
+        GetPage(name: '/help', page: () => const Help()),
+      ],
       title: 'Drone Sprayer',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           primarySwatch: Colors.teal,
           appBarTheme: const AppBarTheme(
-            backgroundColor:  Color.fromARGB(255, 3, 174, 157),
+            backgroundColor: Color.fromARGB(255, 3, 174, 157),
             elevation: 0.0,
             // centerTitle: true,
           )),
-      home: const HiddenDrawer(),
+      home: const ProductCalculation(),
     );
   }
 }

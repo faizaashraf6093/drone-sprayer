@@ -7,8 +7,17 @@ class Calibration extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          color: Colors.blue[400],
+        appBar: AppBar(
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                height: 250,
+                color: Colors.blue[400],
+              ),
+            ],
+          ),
         ),
       ),
     );

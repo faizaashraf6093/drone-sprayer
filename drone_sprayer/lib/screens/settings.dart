@@ -1,3 +1,4 @@
+import 'package:drone_sprayer/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatelessWidget {
@@ -5,10 +6,12 @@ class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(),
-      ),
+    return Scaffold(
+      drawer: const MyDrawer(),
+      appBar: AppBar(
+        title: const Text('Settings'),
+        ),
+      body: const SingleChildScrollView(),
     );
   }
 }
