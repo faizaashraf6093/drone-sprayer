@@ -26,7 +26,7 @@ class TimeCalculation extends StatelessWidget {
             children: [
               const HeadContainer(
                 heading:
-                    'How Much Time Will be Needed \nto Spray the Whole Area',
+                    'How much Time will be needed \nto Spray the whole Area',
                 iconImage: 'asset/icons/time.png',
               ),
               SingleChildScrollView(

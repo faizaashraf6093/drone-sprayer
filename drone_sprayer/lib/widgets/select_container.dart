@@ -21,7 +21,7 @@ class _TankSizeState extends State<TankSize> {
       child: Container(
         alignment: Alignment.center,
         height: 50,
-        width: 90,
+        width: 60,
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           color: index == _selectedValueIndex ? Colors.teal : Colors.grey.shade200,

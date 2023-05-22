@@ -27,7 +27,7 @@ class ProductCalculation extends StatelessWidget {
             children: [
               const HeadContainer(
                 heading:
-                    'How much pesticide require per tank \nand for the whole area',
+                    'How much pesticide require per tank and for the whole area',
                 iconImage: 'asset/icons/insecticide.png',
               ),
               SingleChildScrollView(

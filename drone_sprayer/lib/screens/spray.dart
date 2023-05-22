@@ -27,7 +27,7 @@ class SprayCalculations extends StatelessWidget {
             children: [
               const HeadContainer(
                 heading:
-                    'How much Spray Mix will be required and \nHow many Sprayer Tanks will be used',
+                    'How much Spray Mix and Tanks will be required',
                 iconImage: 'asset/icons/spray_mix.png',
               ),
               SingleChildScrollView(
