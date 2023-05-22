@@ -83,7 +83,7 @@ class HomePage extends StatelessWidget {
                                       iconImage: 'asset/icons/spray_mix.png',
                                       text: 'Spray Mix Calculations',
                                       details:
-                                          'The amount of pesticide to put in a sprayer each time',
+                                          'How much Spray Mix will used and how many Sprayer tank will be needed',
                                     ),
                                   ),
                                   InkWell(

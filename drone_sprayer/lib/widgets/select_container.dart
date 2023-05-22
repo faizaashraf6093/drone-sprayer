@@ -8,12 +8,11 @@ class TankSize extends StatefulWidget {
 }
 
 class _TankSizeState extends State<TankSize> {
-  int? _selectedValueIndex;
+  int? _selectedValueIndex = 0;
   List<String> buttonText = ['5', '8', '10', '16', '20'];
 
   Widget button({required String text, required int index}) {
     return InkWell(
-      splashColor: Colors.cyanAccent,
       onTap: () {
         setState(() {
           _selectedValueIndex = index;
@@ -25,7 +24,7 @@ class _TankSizeState extends State<TankSize> {
         width: 90,
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: index == _selectedValueIndex ? Colors.teal : Colors.white70,
+          color: index == _selectedValueIndex ? Colors.teal : Colors.grey.shade200,
         ),
         child: Text(
           text,
@@ -41,17 +40,23 @@ class _TankSizeState extends State<TankSize> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        ...List.generate(
-          buttonText.length,
-          (index) => button(
-            index: index,
-            text: buttonText[index],
-          ),
-        )
-      ],
+    return Container(
+      decoration: BoxDecoration(
+      color: Colors.grey.shade200,
+      borderRadius: const BorderRadius.all(Radius.circular(8.0))
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          ...List.generate(
+            buttonText.length,
+            (index) => button(
+              index: index,
+              text: buttonText[index],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

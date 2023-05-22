@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HeadContainer extends StatelessWidget {
   final String iconImage;
@@ -20,7 +21,9 @@ class HeadContainer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.back(result: '/');
+            },
             icon: const Icon(Icons.arrow_back_ios_new),
             color: Colors.white,
             iconSize: 32.0,

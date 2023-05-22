@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/button.dart';
 import '../widgets/head_container.dart';
+import '../widgets/heading.dart';
 import '../widgets/input.dart';
 import '../widgets/select_container.dart';
 
@@ -69,7 +71,7 @@ class ProductCalculation extends StatelessWidget {
                             callback: () {}),
                       ),
                       const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20.0),
+                        padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
                         child: TankSize(),
                       ),
                       Calculate(
@@ -87,64 +89,3 @@ class ProductCalculation extends StatelessWidget {
   }
 }
 
-class Calculate extends StatelessWidget {
-  final VoidCallback calculate;
-  const Calculate({
-    super.key,
-    required this.calculate,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: ElevatedButton.icon(
-            onPressed: calculate,
-            icon: const Icon(
-              Icons.calculate_rounded,
-              size: 28.0,
-            ),
-            label: const Text(
-              'Calculate',
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 18,
-              ),
-            ),
-            style: ElevatedButton.styleFrom(
-              fixedSize: const Size(280, 48),
-              backgroundColor: Colors.teal.shade800,
-            )),
-      ),
-    );
-  }
-}
-
-class HeadingRow extends StatelessWidget {
-  final String text;
-  final VoidCallback callback;
-  const HeadingRow({
-    super.key,
-    required this.text,
-    required this.callback,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          text,
-          style: const TextStyle(fontWeight: FontWeight.w600),
-        ),
-        IconButton(
-          onPressed: callback,
-          icon: const Icon(Icons.info),
-          color: Colors.teal,
-        )
-      ],
-    );
-  }
-}
