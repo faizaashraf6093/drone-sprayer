@@ -26,8 +26,7 @@ class SprayCalculations extends StatelessWidget {
           child: Column(
             children: [
               const HeadContainer(
-                heading:
-                    'How much Spray Mix and Tanks will be required',
+                heading: 'How much Spray Mix and Tanks will be required',
                 iconImage: 'asset/icons/spray_mix.png',
               ),
               SingleChildScrollView(
@@ -50,13 +49,6 @@ class SprayCalculations extends StatelessWidget {
                         ),
                       ),
                       const InputField(),
-                      // Padding(
-                      //   padding: const EdgeInsets.symmetric(horizontal: 20),
-                      //   child: HeadingRow(
-                      //       text: 'Enter the Area of the Field  (ac)',
-                      //       callback: () {}),
-                      // ),
-                      // const InputField(),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: HeadingRow(

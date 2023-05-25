@@ -1,5 +1,6 @@
 import 'package:drone_sprayer/screens/help.dart';
 import 'package:drone_sprayer/screens/homepage.dart';
+import 'package:drone_sprayer/screens/map.dart';
 import 'package:drone_sprayer/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -38,6 +39,21 @@ class MyDrawer extends StatelessWidget {
               Navigator.pop(context);
               Get.back(result: const HomePage());
               Get.to(() => const HomePage());
+            },
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.location_on,
+              color: Colors.white,
+            ),
+            title: const Text(
+              'Map',
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+              Get.back(result: const HomePage());
+              Get.to(() => const Location());
             },
           ),
           ListTile(
