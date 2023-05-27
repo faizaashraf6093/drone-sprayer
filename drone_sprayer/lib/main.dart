@@ -1,9 +1,10 @@
-import 'package:drone_sprayer/screens/help.dart';
-import 'package:drone_sprayer/screens/homepage.dart';
-import 'package:drone_sprayer/screens/map.dart';
-import 'package:drone_sprayer/screens/settings.dart';
+import 'package:drone_sprayer/screens/spray.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'package:drone_sprayer/screens/help.dart';
+import 'package:drone_sprayer/screens/map.dart';
+import 'package:drone_sprayer/screens/settings.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       initialRoute: '/',
       getPages: [
-        GetPage(name: '/', page: () => const HomePage()),
+        GetPage(name: '/', page: () => const SprayCalculations()),
         GetPage(name: '/map', page: () => const Location()),
         GetPage(name: '/setting', page: () => const Settings()),
         GetPage(name: '/help', page: () => const Help()),
@@ -27,11 +28,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.teal,
           appBarTheme: const AppBarTheme(
-            backgroundColor: Color.fromARGB(255, 3, 174, 157),
+            backgroundColor: Colors.teal,
             elevation: 0.0,
             // centerTitle: true,
           )),
-      home: const HomePage(),
+      home: const SprayCalculations(),
     );
   }
 }

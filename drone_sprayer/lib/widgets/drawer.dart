@@ -36,9 +36,7 @@ class MyDrawer extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
             onTap: () {
-              Navigator.pop(context);
-              Get.back(result: const HomePage());
-              Get.to(() => const HomePage());
+              Get.offAll(const HomePage());
             },
           ),
           ListTile(
@@ -51,8 +49,7 @@ class MyDrawer extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
             onTap: () {
-              Navigator.pop(context);
-              Get.back(result: const HomePage());
+              Get.offAll(const HomePage());
               Get.to(() => const Location());
             },
           ),
@@ -66,8 +63,7 @@ class MyDrawer extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
             onTap: () {
-              Navigator.pop(context);
-              Get.back(result: const HomePage());
+              Get.offAll(const HomePage());
               Get.to(() => const Settings());
             },
           ),
@@ -81,8 +77,7 @@ class MyDrawer extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
             onTap: () {
-              Navigator.pop(context);
-              Get.back(result: const HomePage());
+              Get.offAll(const HomePage());
               Get.to(() => const Help());
             },
           ),

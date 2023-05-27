@@ -10,6 +10,10 @@ class Calibration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController swathCtrl = TextEditingController();
+    final TextEditingController areaCtrl = TextEditingController();
+    final TextEditingController speedCtrl = TextEditingController();
+    final TextEditingController nozzleCtrl = TextEditingController();
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -47,27 +51,35 @@ class Calibration extends StatelessWidget {
                           callback: () {},
                         ),
                       ),
-                      const InputField(),
+                      InputField(
+                        textEditingController: swathCtrl,
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: HeadingRow(
                             text: 'Enter the Area of the Field  (ac)',
                             callback: () {}),
                       ),
-                      const InputField(),
+                      InputField(
+                        textEditingController: areaCtrl,
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: HeadingRow(
                             text: 'Enter Drone Speed   (m/s)', callback: () {}),
                       ),
-                      const InputField(),
+                      InputField(
+                        textEditingController: speedCtrl,
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: HeadingRow(
                             text: 'Enter Flow Rate of Drone Nozzle   (L/min)',
                             callback: () {}),
                       ),
-                      const InputField(),
+                      InputField(
+                        textEditingController: nozzleCtrl,
+                      ),
                       Calculate(
                         calculate: () {},
                       )

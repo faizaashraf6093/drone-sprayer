@@ -1,3 +1,4 @@
+import 'package:drone_sprayer/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class Location extends StatefulWidget {
@@ -10,10 +11,13 @@ class Location extends StatefulWidget {
 class _LocationState extends State<Location> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
-      appBar: AppBar(
-        title: const Text('Map'),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Map'),
+        ),
+        drawer: const MyDrawer(),
       ),
-    ),);
+    );
   }
 }
