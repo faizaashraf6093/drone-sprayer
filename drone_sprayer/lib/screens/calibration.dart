@@ -1,4 +1,6 @@
+import 'package:drone_sprayer/screens/result_calibration.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../widgets/button.dart';
 import '../widgets/head_container.dart';
@@ -81,7 +83,13 @@ class Calibration extends StatelessWidget {
                         textEditingController: nozzleCtrl,
                       ),
                       Calculate(
-                        calculate: () {},
+                        calculate: () {
+                          String result = sprayerOutput(
+                              areaCtrl, swathCtrl, speedCtrl, nozzleCtrl);
+
+                          Get.to(() => const SprayerOutput(),
+                              arguments: result);
+                        },
                       )
                     ],
                   ),
@@ -92,5 +100,18 @@ class Calibration extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  sprayerOutput(TextEditingController areaCtrl, TextEditingController swathCtrl,
+      TextEditingController speedCtrl, TextEditingController nozzleCtrl) {
+    double area = double.parse(areaCtrl.text) * 4047;
+    double width = double.parse(swathCtrl.text);
+    double speed = double.parse(speedCtrl.text) * 3.6;
+    double flowRate = double.parse(nozzleCtrl.text) * 60;
+    double distance = (area / width) / 1000;
+    double time = distance / speed;
+    double output = (time * flowRate).toPrecision(1);
+
+    return output.toString();
   }
 }

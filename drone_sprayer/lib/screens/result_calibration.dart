@@ -2,8 +2,8 @@ import 'package:drone_sprayer/screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TimeResult extends StatelessWidget {
-  const TimeResult({super.key});
+class SprayerOutput extends StatelessWidget {
+  const SprayerOutput({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +36,10 @@ class TimeResult extends StatelessWidget {
                         const Padding(
                           padding: EdgeInsets.only(top: 12),
                           child: Text(
-                            'How much time will be required to spray the whole area',
+                            'Sprayer Output ',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 18,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -52,10 +52,11 @@ class TimeResult extends StatelessWidget {
                             color: Colors.teal,
                           ),
                         ),
-                        const Text(
-                          'hours      :    minutes',
-                          style: TextStyle(fontSize: 16),
-                        ),
+                        const Text('L/ac', style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),)
                       ],
                     ),
                   ),

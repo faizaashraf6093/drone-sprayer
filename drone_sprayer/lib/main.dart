@@ -1,4 +1,4 @@
-import 'package:drone_sprayer/screens/spray.dart';
+import 'package:drone_sprayer/screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       initialRoute: '/',
       getPages: [
-        GetPage(name: '/', page: () => const SprayCalculations()),
+        GetPage(name: '/', page: () => const HomePage()),
         GetPage(name: '/map', page: () => const Location()),
         GetPage(name: '/setting', page: () => const Settings()),
         GetPage(name: '/help', page: () => const Help()),
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
             elevation: 0.0,
             // centerTitle: true,
           )),
-      home: const SprayCalculations(),
+      home: const HomePage(),
     );
   }
 }

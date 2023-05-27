@@ -12,7 +12,7 @@ class ResultProduct extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Product Calculations Result'),
+          title: const Text('Result'),
         ),
         body: SingleChildScrollView(
           child: Container(
