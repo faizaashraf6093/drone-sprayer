@@ -104,14 +104,13 @@ class Calibration extends StatelessWidget {
 
   sprayerOutput(TextEditingController areaCtrl, TextEditingController swathCtrl,
       TextEditingController speedCtrl, TextEditingController nozzleCtrl) {
-    double area = double.parse(areaCtrl.text) * 4047;
+    double area = double.parse(areaCtrl.text) ;
     double width = double.parse(swathCtrl.text);
     double speed = double.parse(speedCtrl.text) * 3.6;
     double flowRate = double.parse(nozzleCtrl.text) * 60;
-    double distance = (area / width) / 1000;
+    double distance = (area * 4047 / width) / 1000;
     double time = distance / speed;
-    double output = (time * flowRate).toPrecision(1);
-
+    double output = ((time * flowRate) / area).toPrecision(1);
     return output.toString();
   }
 }

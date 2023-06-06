@@ -57,9 +57,9 @@ class ResultProduct extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: Colors.grey.shade300,
                         borderRadius: BorderRadius.circular(12)),
-                    child: Column(
+                    child: const Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: const [
+                      children: [
                         Text(
                           'Instruction',
                           style: TextStyle(

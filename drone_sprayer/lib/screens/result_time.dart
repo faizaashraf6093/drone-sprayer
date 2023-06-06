@@ -65,8 +65,8 @@ class TimeResult extends StatelessWidget {
                   alignment: Alignment.center,
                   height: 150,
                   width: width - 30,
-                  child: Column(
-                    children: const [
+                  child: const Column(
+                    children: [
                       ListTile(
                         leading: Icon(
                           Icons.error_outline,

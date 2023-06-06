@@ -31,7 +31,7 @@ class ResultSpray extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         CustomRow(
                           text: 'Total Spray Mix volume required: ',
@@ -57,9 +57,9 @@ class ResultSpray extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: Colors.grey.shade300,
                         borderRadius: BorderRadius.circular(12)),
-                    child: Column(
+                    child: const Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: const [
+                      children: [
                         Text(
                           'Instruction',
                           style: TextStyle(
