@@ -10,8 +10,12 @@ class Settings extends StatelessWidget {
       drawer: const MyDrawer(),
       appBar: AppBar(
         title: const Text('Settings'),
+      ),
+      body: const SingleChildScrollView(
+        child: ListTile(
+          title: Text('Logout'),
         ),
-      body: const SingleChildScrollView(),
+      ),
     );
   }
 }

@@ -1,7 +1,9 @@
+import 'package:drone_sprayer/auth/auth.dart';
 import 'package:drone_sprayer/screens/calibration.dart';
 import 'package:drone_sprayer/screens/product.dart';
 import 'package:drone_sprayer/screens/spray.dart';
 import 'package:drone_sprayer/widgets/drawer.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:drone_sprayer/screens/time.dart';
@@ -16,8 +18,17 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Drone Sprayer'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Get.offAll(const AuthPage());
+              FirebaseAuth.instance.signOut();
+            },
+            icon: const Icon(Icons.logout),
+          )
+        ],
       ),
-      drawer: const MyDrawer(),    
+      drawer: const MyDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
@@ -59,8 +70,8 @@ class HomePage extends StatelessWidget {
                                 mainAxisSpacing: 5,
                                 children: [
                                   InkWell(
-                                    onTap: () => Get.to(() => const TimeCalculation()),
-                                    
+                                    onTap: () =>
+                                        Get.to(() => const TimeCalculation()),
                                     child: const HomeContainer(
                                       iconImage: 'asset/icons/time.png',
                                       text: 'Time \n Calculation',
@@ -69,7 +80,8 @@ class HomePage extends StatelessWidget {
                                     ),
                                   ),
                                   InkWell(
-                                    onTap: () => Get.to(() => const ProductCalculation()),
+                                    onTap: () => Get.to(
+                                        () => const ProductCalculation()),
                                     child: const HomeContainer(
                                       iconImage: 'asset/icons/insecticide.png',
                                       text: 'Product Calculations',
@@ -78,7 +90,8 @@ class HomePage extends StatelessWidget {
                                     ),
                                   ),
                                   InkWell(
-                                    onTap: () => Get.to(() => const SprayCalculations()),
+                                    onTap: () =>
+                                        Get.to(() => const SprayCalculations()),
                                     child: const HomeContainer(
                                       iconImage: 'asset/icons/spray_mix.png',
                                       text: 'Spray Mix Calculations',
@@ -87,7 +100,8 @@ class HomePage extends StatelessWidget {
                                     ),
                                   ),
                                   InkWell(
-                                    onTap: () => Get.to(() => const Calibration()),
+                                    onTap: () =>
+                                        Get.to(() => const Calibration()),
                                     child: const HomeContainer(
                                       iconImage: 'asset/icons/nozzle.png',
                                       text: 'Drone \n Calibration',

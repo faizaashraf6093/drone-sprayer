@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "232378872935",
+    "project_id": "sprayer-drone",
+    "storage_bucket": "sprayer-drone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232378872935:android:3fdd3363700ca4279010c2",
+        "android_client_info": {
+          "package_name": "com.example.drone_sprayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232378872935-t2ci8rl849s7len7ldcgc95c6ghjjopp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBfIoM86qD4O2qkln1FmJeTOhYEPBlFbs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232378872935-t2ci8rl849s7len7ldcgc95c6ghjjopp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
