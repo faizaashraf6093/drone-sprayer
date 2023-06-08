@@ -82,12 +82,16 @@ class _ProductCalculationState extends State<ProductCalculation> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 23.0, left: 20.0, right: 20.0),
+                      const Padding(
+                        padding:
+                            EdgeInsets.only(top: 23.0, left: 20.0, right: 20.0),
                         child: HeadingRow(
-                            text: 'Select the size of Sprayer Tank  (L)',
-                            callback: () {}),
+                          text: 'Select the size of Sprayer Tank  (L)',
+                          bottomHeading: 'Tank Size',
+                          content:
+                              'The tank size of a drone sprayer refers to the capacity or volume of liquid that the drone\'s spray system can hold. It determines the amount of pesticide or other liquid that can be carried and applied during a single flight or operationThe tank size of drone sprayers can vary significantly depending on the model and purpose',
+                          isSprayer: false,
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(
@@ -111,32 +115,49 @@ class _ProductCalculationState extends State<ProductCalculation> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
                         child: HeadingRow(
                           text: 'Enter the rate of Pesticide  (L/ac)',
-                          callback: () {},
+                          bottomHeading: 'Pesticide Rate',
+                          content:
+                              'The pesticide rate refers to the amount of pesticide that is recommended to be used to apply to a specific area to get rid of pests effectively. Usually written on the label of the product',
+                          isSprayer: false,
                         ),
                       ),
                       InputField(textEditingController: rateCtrl),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
                         child: HeadingRow(
-                            text: 'Enter the Area of the Field  (ac)',
-                            callback: () {}),
+                          text: 'Enter the Area of the Field  (ac)',
+                          bottomHeading: 'Area of field',
+                          content:
+                              'This is the area of field you want to spray. Area covered by a spraying drone can vary based on factors like turns, overlaps, and flight patterns. Planning and optimizing flight paths can help ensure efficient and accurate coverage of the target area.',
+                          isSprayer: false,
+                        ),
                       ),
                       InputField(textEditingController: areaCtrl),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
                         child: HeadingRow(
-                            text: 'Enter Sprayer Output   (L/ac)',
-                            callback: () {}),
+                          text: 'Enter Sprayer Output   (L/ac)',
+                          bottomHeading: 'Sprayer Output',
+                          content:
+                              'Sprayer output refers to the volume of liquid or pesticide mixture that a sprayer can deliver per unit of time. It is a measure of how much liquid is being sprayed onto a target surface during a specific period. If you don\'t know the value click below',
+                          isSprayer: true,
+                        ),
                       ),
                       InputField(textEditingController: outputCtrl),
                       Calculate(calculate: () {
-                        List<String> result =
-                            productCalculation(areaCtrl, rateCtrl, outputCtrl);
-                        Get.to( () => const ResultProduct(), arguments: result);
+                        try {
+                          List<String> result = productCalculation(
+                              areaCtrl, rateCtrl, outputCtrl);
+                          Get.to(() => const ResultProduct(),
+                              arguments: result);
+                        } on FormatException catch (e) {
+                          String error = e.message;
+                          displayMessage(error);
+                        }
                       })
                     ],
                   ),
@@ -147,6 +168,18 @@ class _ProductCalculationState extends State<ProductCalculation> {
         ),
       ),
     );
+  }
+
+  void displayMessage(String error) {
+    Get.defaultDialog(
+        title: error,
+        content: const Text(
+          'Please provide all the required values',
+          textAlign: TextAlign.center,
+        ),
+        actions: [
+          TextButton(onPressed: () => Get.back(), child: const Text('OK'))
+        ]);
   }
 
   productCalculation(TextEditingController areaCtrl,

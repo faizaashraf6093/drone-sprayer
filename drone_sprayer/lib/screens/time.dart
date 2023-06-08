@@ -45,30 +45,42 @@ class TimeCalculation extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 23.0, left: 20.0, right: 20.0),
+                      const Padding(
+                        padding:
+                            EdgeInsets.only(top: 23.0, left: 20.0, right: 20.0),
                         child: HeadingRow(
                           text: 'Enter the Swath Width  (m)',
-                          callback: () {},
+                          bottomHeading: 'Swath Width',
+                          content:
+                              'The swath width of a spraying drone refers to the horizontal coverage width achieved by the drone\'s spraying system in a single pass. The swath width tells us how wide the drone can spray in one go',
+                          isSprayer: false,
                         ),
                       ),
                       InputField(
                         textEditingController: swathCtrl,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
                         child: HeadingRow(
-                            text: 'Enter the Area of the Field  (ac)',
-                            callback: () {}),
+                          text: 'Enter the Area of the Field  (ac)',
+                          bottomHeading: 'Area of field',
+                          content:
+                              'This is the area of field you want to spray. Area covered by a spraying drone can vary based on factors like turns, overlaps, and flight patterns. Planning and optimizing flight paths can help ensure efficient and accurate coverage of the target area.',
+                          isSprayer: false,
+                        ),
                       ),
                       InputField(
                         textEditingController: areaCtrl,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
                         child: HeadingRow(
-                            text: 'Enter Drone Speed   (m/s)', callback: () {}),
+                          text: 'Enter Drone Speed   (m/s)',
+                          bottomHeading: 'Drone Speed',
+                          content:
+                              'The speed at which you want to fly your drone. Finding the right speed for a drone during spraying is crucial to achieve proper coverage, minimize drift and over-spray, improve flight efficiency, and optimize battery usage for a successful spraying operation.',
+                          isSprayer: false,
+                        ),
                       ),
                       InputField(
                         textEditingController: speedCtrl,
@@ -76,9 +88,14 @@ class TimeCalculation extends StatelessWidget {
                       const SizedBox(height: 30),
                       Calculate(
                         calculate: () {
-                          String result =
-                              calculateTime(areaCtrl, swathCtrl, speedCtrl);
-                          Get.to(const TimeResult(), arguments: result);
+                          try {
+                            String result =
+                                calculateTime(areaCtrl, swathCtrl, speedCtrl);
+                            Get.to(const TimeResult(), arguments: result);
+                          } on FormatException catch (e) {
+                            String error = e.message;
+                            displayMessage(error);
+                          }
                         },
                       )
                     ],
@@ -90,6 +107,18 @@ class TimeCalculation extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void displayMessage(String error) {
+    Get.defaultDialog(
+        title: error,
+        content: const Text(
+          'Please provide all the required values',
+          textAlign: TextAlign.center,
+        ),
+        actions: [
+          TextButton(onPressed: () => Get.back(), child: const Text('OK'))
+        ]);
   }
 
   String calculateTime(TextEditingController areaCtrl,
