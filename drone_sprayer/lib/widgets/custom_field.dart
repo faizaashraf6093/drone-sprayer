@@ -18,6 +18,8 @@ class MyTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextField(
+        autocorrect: false,
+        enableSuggestions: false,
         keyboardType: TextInputType.emailAddress,
         controller: controller,
         obscureText: obscureText,

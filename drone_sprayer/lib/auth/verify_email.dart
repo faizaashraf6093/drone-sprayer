@@ -105,19 +105,31 @@ class _EmailVerificationState extends State<EmailVerification> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 32.0),
                     child: Center(
-                      child: Text(
-                        'We have sent you a Email on \n \n ${FirebaseAuth.instance.currentUser?.email}',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                        ),
+                      child: Column(
+                        children: [
+                          const Text(
+                            'We have sent you a Email on',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          Text(
+                            '${FirebaseAuth.instance.currentUser?.email}',
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.amber,
+                              fontSize: 18,
+                            ),
+                          )
+                        ],
                       ),
                     ),
                   ),
-                  const SizedBox(height: 16),
-                  const Center(child: CircularProgressIndicator()),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 30),
+                  
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 32.0),
                     child: Center(
@@ -132,7 +144,7 @@ class _EmailVerificationState extends State<EmailVerification> {
                   ),
                   const SizedBox(height: 20),
                   const CircularProgressIndicator(
-                    color: Colors.white,
+                    color: Colors.amber,
                   ),
                   const SizedBox(height: 57),
                   Padding(

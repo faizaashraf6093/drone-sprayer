@@ -1,5 +1,4 @@
 import 'package:drone_sprayer/auth/auth.dart';
-import 'package:drone_sprayer/auth/verify_email.dart';
 import 'package:drone_sprayer/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -24,8 +23,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       initialRoute: '/',
       getPages: [
-        GetPage(name: '/', page: () => const AuthPage()),
-        GetPage(name: '/home', page: () => const HomePage()),
+        GetPage(name: '/', page: () => const HomePage()),
+        GetPage(name: '/auth', page: () => const AuthPage()),
         GetPage(name: '/map', page: () => const Location()),
         GetPage(name: '/setting', page: () => const Settings()),
         GetPage(name: '/help', page: () => const Help()),

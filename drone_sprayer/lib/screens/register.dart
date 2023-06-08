@@ -1,4 +1,5 @@
 import 'package:drone_sprayer/auth/verify_email.dart';
+import 'package:drone_sprayer/widgets/btn.dart';
 import 'package:drone_sprayer/widgets/custom_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -18,20 +19,43 @@ class _RegisterState extends State<Register> {
     final width = MediaQuery.of(context).size.width;
     final TextEditingController email = TextEditingController();
     final TextEditingController password = TextEditingController();
-    bool isLoading = false;
+    final TextEditingController confirm = TextEditingController();
 
-    void handleSignUp() async {
-      setState(() {
-        isLoading = true;
-      });
+    void displayMessage(String error) {
+      Get.defaultDialog(
+          title: 'Error',
+          content: Text(error, textAlign: TextAlign.center),
+          actions: [
+            TextButton(onPressed: () => Get.back(), child: const Text('OK'))
+          ]);
+    }
 
-      await registerUser(email, password);
-      if (FirebaseAuth.instance.currentUser != null) {
+    void progressIndicator() {
+      Get.dialog(const Center(
+        child: CircularProgressIndicator(
+          color: Colors.amber,
+        ),
+      ));
+    }
+
+    void signUp() async {
+      if (password.text != confirm.text) {
+        displayMessage('Passwords do not match');
+        return;
+      }
+      progressIndicator();
+      try {
+        await registerUser(email, password);
+        if (context.mounted) Get.back();
+      } on FirebaseAuthException catch (e) {
+        Get.back();
+        displayMessage(e.message!);
+      }
+
+      if (FirebaseAuth.instance.currentUser != null &&
+          password.text == confirm.text) {
         Get.to(const EmailVerification());
       }
-      setState(() {
-        isLoading = false;
-      });
     }
 
     return Scaffold(
@@ -63,35 +87,18 @@ class _RegisterState extends State<Register> {
                 obscureText: false,
                 icon: Icons.lock,
               ),
-
+              MyTextField(
+                controller: confirm,
+                hintText: 'Confirm Your Password',
+                obscureText: false,
+                icon: Icons.lock,
+              ),
               const SizedBox(
                 height: 30,
               ),
-              GestureDetector(
-                onTap: isLoading ? null : handleSignUp,
-                child: Container(
-                  height: 60,
-                  padding: const EdgeInsets.all(8.0),
-                  margin: const EdgeInsets.symmetric(horizontal: 25),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                  child: isLoading
-                      ? const Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      : const Center(
-                          child: Text(
-                            'Register',
-                            style: TextStyle(
-                              color: Colors.teal,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                ),
+              AuthButton(
+                text: 'Register',
+                callback: signUp,
               ),
               const SizedBox(
                 height: 30,

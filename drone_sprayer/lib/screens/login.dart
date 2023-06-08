@@ -1,6 +1,8 @@
+import 'package:drone_sprayer/widgets/btn.dart';
 import 'package:drone_sprayer/widgets/custom_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Login extends StatefulWidget {
   final Function()? onTap;
@@ -16,18 +18,33 @@ class _LoginState extends State<Login> {
     final width = MediaQuery.of(context).size.width;
     final TextEditingController email = TextEditingController();
     final TextEditingController password = TextEditingController();
-    bool isLoading = false;
 
-    void handleSignIn() async {
-      setState(() {
-        isLoading = true;
-      });
+    void displayMessage(String error) {
+      Get.defaultDialog(
+          title: 'Error',
+          content: Text(error, textAlign: TextAlign.center),
+          actions: [
+            TextButton(onPressed: () => Get.back(), child: const Text('OK'))
+          ]);
+    }
 
-      await loginUser(email, password);
+    void progressIndicator() {
+      Get.dialog(const Center(
+        child: CircularProgressIndicator(
+          color: Colors.amber,
+        ),
+      ));
+    }
 
-      setState(() {
-        isLoading = false;
-      });
+    void signIn() async {
+      progressIndicator();
+      try {
+        await loginUser(email, password);
+        if (context.mounted) Get.back();
+      } on FirebaseAuthException catch (e) {
+        Get.back();
+        displayMessage(e.message!);
+      }
     }
 
     return Scaffold(
@@ -65,31 +82,9 @@ class _LoginState extends State<Login> {
               const SizedBox(
                 height: 30,
               ),
-              GestureDetector(
-                onTap: isLoading ? null : handleSignIn,
-                child: Container(
-                  height: 60,
-                  padding: const EdgeInsets.all(8.0),
-                  margin: const EdgeInsets.symmetric(horizontal: 25),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                  child: isLoading
-                      ? const Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      : const Center(
-                          child: Text(
-                            'Login',
-                            style: TextStyle(
-                              color: Colors.teal,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                ),
+              AuthButton(
+                text: 'Login',
+                callback: signIn,
               ),
               const SizedBox(
                 height: 30,
