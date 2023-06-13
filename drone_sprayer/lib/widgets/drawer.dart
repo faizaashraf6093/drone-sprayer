@@ -2,8 +2,11 @@ import 'package:drone_sprayer/screens/help.dart';
 import 'package:drone_sprayer/screens/homepage.dart';
 import 'package:drone_sprayer/screens/map.dart';
 import 'package:drone_sprayer/screens/settings.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../auth/auth.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -55,11 +58,11 @@ class MyDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(
-              Icons.settings,
+              Icons.person,
               color: Colors.white,
             ),
             title: const Text(
-              'Settings',
+              'Profile',
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
             onTap: () {
@@ -69,16 +72,16 @@ class MyDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(
-              Icons.help,
+              Icons.logout_rounded,
               color: Colors.white,
             ),
             title: const Text(
-              'Help',
+              'Log Out',
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
             onTap: () {
-              Get.offAll(const HomePage());
-              Get.to(() => const Help());
+              Get.offAll(const AuthPage());
+              FirebaseAuth.instance.signOut();
             },
           ),
         ],

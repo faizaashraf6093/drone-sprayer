@@ -89,11 +89,11 @@ class _SprayCalculationsState extends State<SprayCalculations> {
                       const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 20),
                         child: HeadingRow(
-                          text: 'Enter the Area of the Field  (ac)',
-                          bottomHeading: 'Area of field',
+                          text: 'Enter the rate of Pesticide  (L/ac)',
+                          bottomHeading: 'Pesticide Rate',
                           content:
-                              'This is the area of field you want to spray. Area covered by a spraying drone can vary based on factors like turns, overlaps, and flight patterns. Planning and optimizing flight paths can help ensure efficient and accurate coverage of the target area.',
-                          isSprayer: true,
+                              'The pesticide rate refers to the amount of pesticide that is recommended to be used to apply to a specific area to get rid of pests effectively. Usually written on the label of the product',
+                          isSprayer: false,
                         ),
                       ),
                       InputField(textEditingController: rateCtrl),

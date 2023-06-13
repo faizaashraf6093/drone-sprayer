@@ -21,21 +21,22 @@ class HomeContainer extends StatelessWidget {
         top: 20,
       ),
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: const [
-            BoxShadow(
-              color: Color.fromRGBO(150, 147, 147, 1),
-              offset: Offset(-5.0, 5.0),
-              blurRadius: 20,
-              spreadRadius: 0.5,
-            ),
-            BoxShadow(
-              color: Colors.white,
-              blurRadius: 0.0,
-              spreadRadius: 3.0,
-            )
-          ]),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: const [
+          BoxShadow(
+            color: Color.fromRGBO(150, 147, 147, 1),
+            offset: Offset(-3.0, 3.0),
+            blurRadius: 10,
+            spreadRadius: 0.5,
+          ),
+          BoxShadow(
+            color: Colors.white,
+            blurRadius: 0.0,
+            spreadRadius: 3.0,
+          )
+        ],
+      ),
       child: Column(
         children: [
           Padding(
@@ -54,7 +55,7 @@ class HomeContainer extends StatelessWidget {
               ),
             ),
           ),
-          Column(            
+          Column(
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),

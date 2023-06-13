@@ -1,9 +1,7 @@
-import 'package:drone_sprayer/auth/auth.dart';
 import 'package:drone_sprayer/screens/calibration.dart';
 import 'package:drone_sprayer/screens/product.dart';
 import 'package:drone_sprayer/screens/spray.dart';
 import 'package:drone_sprayer/widgets/drawer.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:drone_sprayer/screens/time.dart';
@@ -18,15 +16,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Drone Sprayer'),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Get.offAll(const AuthPage());
-              FirebaseAuth.instance.signOut();
-            },
-            icon: const Icon(Icons.logout),
-          )
-        ],
+        
       ),
       drawer: const MyDrawer(),
       body: SingleChildScrollView(
